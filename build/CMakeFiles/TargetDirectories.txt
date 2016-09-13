@@ -1,0 +1,6 @@
+/home/paultpt/Documents/gnuradio/gr-adsb_send/build/docs/doxygen/CMakeFiles/doxygen_target.dir
+/home/paultpt/Documents/gnuradio/gr-adsb_send/build/lib/CMakeFiles/gnuradio-adsb_send.dir
+/home/paultpt/Documents/gnuradio/gr-adsb_send/build/apps/CMakeFiles/pygen_apps_9a6dd.dir
+/home/paultpt/Documents/gnuradio/gr-adsb_send/build/python/CMakeFiles/pygen_python_eb871.dir
+/home/paultpt/Documents/gnuradio/gr-adsb_send/build/lib/CMakeFiles/test-adsb_send.dir
+/home/paultpt/Documents/gnuradio/gr-adsb_send/build/CMakeFiles/uninstall.dir

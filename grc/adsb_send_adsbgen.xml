@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<block>
+
+  <name>adsbgen</name>
+  <key>adsb_send_adsbgen</key>
+  <category>adsb_send</category>
+  <import>import adsb_send</import>
+  <make>adsb_send.adsbgen($file, $amp, $delay)</make>
+
+  <param>
+    <name>ADS-B logfile location</name>
+    <key>file</key>
+    <type>string</type>
+  </param>
+
+    <param>
+    <name>Amplitude</name>
+    <key>amp</key>
+    <type>float</type>
+    </param>
+
+    <param>
+    <name>Delay between packets</name>
+    <key>delay</key>
+    <type>int</type>
+    </param>
+
+    <source>
+    <name>out</name>
+    <type>float</type>
+    </source>
+
+</block>

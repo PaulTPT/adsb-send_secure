@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
+  <compounddef id="classgr_1_1adsb__send_1_1adsbgen__impl" kind="class" prot="public">
+    <compoundname>gr::adsb_send::adsbgen_impl</compoundname>
+    <basecompoundref refid="classgr_1_1adsb__send_1_1adsbgen" prot="public" virt="non-virtual">gr::adsb_send::adsbgen</basecompoundref>
+    <includes refid="adsbgen__impl_8h" local="no">adsbgen_impl.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classgr_1_1adsb__send_1_1adsbgen__impl_1a233ddf4eff783de6e1f25d996e98612e" prot="private" static="no" mutable="no">
+        <type>clock_t</type>
+        <definition>clock_t gr::adsb_send::adsbgen_impl::last_packet_time</definition>
+        <argsstring></argsstring>
+        <name>last_packet_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" line="48" column="1" bodyfile="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1adsb__send_1_1adsbgen__impl_1a815a4b4920e4083d3ae71a553f765c22" prot="private" static="no" mutable="no">
+        <type>std::ifstream</type>
+        <definition>std::ifstream gr::adsb_send::adsbgen_impl::myfile</definition>
+        <argsstring></argsstring>
+        <name>myfile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" line="49" column="1" bodyfile="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1adsb__send_1_1adsbgen__impl_1ae98bf062b97ffdd9c632d2c28daa1a61" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float gr::adsb_send::adsbgen_impl::AMP</definition>
+        <argsstring></argsstring>
+        <name>AMP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" line="51" column="1" bodyfile="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1adsb__send_1_1adsbgen__impl_1a1f0e6d3886a602a6c83ad18244f0c6d1" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int gr::adsb_send::adsbgen_impl::DELAY</definition>
+        <argsstring></argsstring>
+        <name>DELAY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" line="52" column="1" bodyfile="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1adsb__send_1_1adsbgen__impl_1a263bcb4081394c97056526f3710f4a01" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float gr::adsb_send::adsbgen_impl::preamble_bits[16]</definition>
+        <argsstring>[16]</argsstring>
+        <name>preamble_bits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" line="53" column="1" bodyfile="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1adsb__send_1_1adsbgen__impl_1a23fd9646799a5e21cf64b2b4dc3062ff" prot="private" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char gr::adsb_send::adsbgen_impl::root_key[32]</definition>
+        <argsstring>[32]</argsstring>
+        <name>root_key</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" line="54" column="1" bodyfile="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1adsb__send_1_1adsbgen__impl_1a47b5bc400d7b9ab4b2dead0f6d6e527f" prot="private" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char gr::adsb_send::adsbgen_impl::addr[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>addr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" line="55" column="1" bodyfile="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1adsb__send_1_1adsbgen__impl_1a4569a2544422cb91b4878266f06a4230" prot="private" static="no" mutable="no">
+        <type>unsigned char **</type>
+        <definition>unsigned char** gr::adsb_send::adsbgen_impl::keys</definition>
+        <argsstring></argsstring>
+        <name>keys</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" line="56" column="1" bodyfile="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1adsb__send_1_1adsbgen__impl_1a219f5ad0bbe85d39c08a3350fd2409a4" prot="private" static="no" mutable="no">
+        <type>unsigned char *</type>
+        <definition>unsigned char* gr::adsb_send::adsbgen_impl::signature</definition>
+        <argsstring></argsstring>
+        <name>signature</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" line="57" column="1" bodyfile="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1adsb__send_1_1adsbgen__impl_1a51508bfef3db62ad635bd49659cb317f" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int gr::adsb_send::adsbgen_impl::key_num</definition>
+        <argsstring></argsstring>
+        <name>key_num</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" line="58" column="1" bodyfile="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classgr_1_1adsb__send_1_1adsbgen__impl_1a33e64cc37f1c1b780b50284acf433a5d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double gr::adsb_send::adsbgen_impl::difftime</definition>
+        <argsstring>(clock_t t1, clock_t t2)</argsstring>
+        <name>difftime</name>
+        <param>
+          <type>clock_t</type>
+          <declname>t1</declname>
+        </param>
+        <param>
+          <type>clock_t</type>
+          <declname>t2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" line="50" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgr_1_1adsb__send_1_1adsbgen__impl_1a3099ad194768a802187925f105b9f104" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>gr::adsb_send::adsbgen_impl::adsbgen_impl</definition>
+        <argsstring>(char *file, float amp, int delay)</argsstring>
+        <name>adsbgen_impl</name>
+        <param>
+          <type>char *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>amp</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>delay</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" line="62" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1adsb__send_1_1adsbgen__impl_1abe7bcf13aace1aa7c60bf13e6ada290c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>gr::adsb_send::adsbgen_impl::~adsbgen_impl</definition>
+        <argsstring>()</argsstring>
+        <name>~adsbgen_impl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" line="63" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1adsb__send_1_1adsbgen__impl_1a1aa38f2c80c3dd08e090b6167d8c8cf0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int gr::adsb_send::adsbgen_impl::work</definition>
+        <argsstring>(int noutput_items, gr_vector_const_void_star &amp;input_items, gr_vector_void_star &amp;output_items)</argsstring>
+        <name>work</name>
+        <param>
+          <type>int</type>
+          <declname>noutput_items</declname>
+        </param>
+        <param>
+          <type>gr_vector_const_void_star &amp;</type>
+          <declname>input_items</declname>
+        </param>
+        <param>
+          <type>gr_vector_void_star &amp;</type>
+          <declname>output_items</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" line="66" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="7">
+        <label>gr::sync_block</label>
+      </node>
+      <node id="5">
+        <label>gr::adsb_send::adsbgen_impl</label>
+        <link refid="classgr_1_1adsb__send_1_1adsbgen__impl"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>gr::adsb_send::adsbgen</label>
+        <link refid="classgr_1_1adsb__send_1_1adsbgen"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="10">
+        <label>gr::sync_block</label>
+      </node>
+      <node id="8">
+        <label>gr::adsb_send::adsbgen_impl</label>
+        <link refid="classgr_1_1adsb__send_1_1adsbgen__impl"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>gr::adsb_send::adsbgen</label>
+        <link refid="classgr_1_1adsb__send_1_1adsbgen"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" line="46" column="1" bodyfile="/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/adsbgen_impl.h" bodystart="45" bodyend="69"/>
+    <listofallmembers>
+      <member refid="classgr_1_1adsb__send_1_1adsbgen__impl_1a47b5bc400d7b9ab4b2dead0f6d6e527f" prot="private" virt="non-virtual"><scope>gr::adsb_send::adsbgen_impl</scope><name>addr</name></member>
+      <member refid="classgr_1_1adsb__send_1_1adsbgen__impl_1a3099ad194768a802187925f105b9f104" prot="public" virt="non-virtual"><scope>gr::adsb_send::adsbgen_impl</scope><name>adsbgen_impl</name></member>
+      <member refid="classgr_1_1adsb__send_1_1adsbgen__impl_1ae98bf062b97ffdd9c632d2c28daa1a61" prot="private" virt="non-virtual"><scope>gr::adsb_send::adsbgen_impl</scope><name>AMP</name></member>
+      <member refid="classgr_1_1adsb__send_1_1adsbgen__impl_1a1f0e6d3886a602a6c83ad18244f0c6d1" prot="private" virt="non-virtual"><scope>gr::adsb_send::adsbgen_impl</scope><name>DELAY</name></member>
+      <member refid="classgr_1_1adsb__send_1_1adsbgen__impl_1a33e64cc37f1c1b780b50284acf433a5d" prot="private" virt="non-virtual"><scope>gr::adsb_send::adsbgen_impl</scope><name>difftime</name></member>
+      <member refid="classgr_1_1adsb__send_1_1adsbgen__impl_1a51508bfef3db62ad635bd49659cb317f" prot="private" virt="non-virtual"><scope>gr::adsb_send::adsbgen_impl</scope><name>key_num</name></member>
+      <member refid="classgr_1_1adsb__send_1_1adsbgen__impl_1a4569a2544422cb91b4878266f06a4230" prot="private" virt="non-virtual"><scope>gr::adsb_send::adsbgen_impl</scope><name>keys</name></member>
+      <member refid="classgr_1_1adsb__send_1_1adsbgen__impl_1a233ddf4eff783de6e1f25d996e98612e" prot="private" virt="non-virtual"><scope>gr::adsb_send::adsbgen_impl</scope><name>last_packet_time</name></member>
+      <member refid="classgr_1_1adsb__send_1_1adsbgen_1a6958bad893b8c272feffb5a42088b810" prot="public" virt="non-virtual"><scope>gr::adsb_send::adsbgen_impl</scope><name>make</name></member>
+      <member refid="classgr_1_1adsb__send_1_1adsbgen__impl_1a815a4b4920e4083d3ae71a553f765c22" prot="private" virt="non-virtual"><scope>gr::adsb_send::adsbgen_impl</scope><name>myfile</name></member>
+      <member refid="classgr_1_1adsb__send_1_1adsbgen__impl_1a263bcb4081394c97056526f3710f4a01" prot="private" virt="non-virtual"><scope>gr::adsb_send::adsbgen_impl</scope><name>preamble_bits</name></member>
+      <member refid="classgr_1_1adsb__send_1_1adsbgen__impl_1a23fd9646799a5e21cf64b2b4dc3062ff" prot="private" virt="non-virtual"><scope>gr::adsb_send::adsbgen_impl</scope><name>root_key</name></member>
+      <member refid="classgr_1_1adsb__send_1_1adsbgen__impl_1a219f5ad0bbe85d39c08a3350fd2409a4" prot="private" virt="non-virtual"><scope>gr::adsb_send::adsbgen_impl</scope><name>signature</name></member>
+      <member refid="classgr_1_1adsb__send_1_1adsbgen_1af2dfda71b16f759a7a12714bd286f268" prot="public" virt="non-virtual"><scope>gr::adsb_send::adsbgen_impl</scope><name>sptr</name></member>
+      <member refid="classgr_1_1adsb__send_1_1adsbgen__impl_1a1aa38f2c80c3dd08e090b6167d8c8cf0" prot="public" virt="non-virtual"><scope>gr::adsb_send::adsbgen_impl</scope><name>work</name></member>
+      <member refid="classgr_1_1adsb__send_1_1adsbgen__impl_1abe7bcf13aace1aa7c60bf13e6ada290c" prot="public" virt="non-virtual"><scope>gr::adsb_send::adsbgen_impl</scope><name>~adsbgen_impl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

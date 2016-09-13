@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/crypto.cpp
+crypto.h
+/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/crypto.h
+
+/home/paultpt/Documents/gnuradio/gr-adsb_send/lib/crypto.h
+openssl/ec.h
+-
+openssl/ecdsa.h
+-
+openssl/obj_mac.h
+-
+openssl/hmac.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+iostream
+-
+iomanip
+-
+
