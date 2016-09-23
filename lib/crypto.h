@@ -5,10 +5,15 @@
 #ifndef GR_ADSB_SEND_SIGNATURE_H
 #define GR_ADSB_SEND_SIGNATURE_H
 
+#include <stdio.h>
+#include <string.h>
 #include <openssl/ec.h>
 #include <openssl/ecdsa.h>
 #include <openssl/obj_mac.h>
 #include <openssl/hmac.h>
+#include <openssl/objects.h>
+#include <openssl/pem.h>
+#include <openssl/evp.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -18,7 +23,7 @@
 
 //The legnth in bits of the hash appended to the ADS-B packet. This should be a multiple of 8 ( we work with bytes)
 #define HASH_LEGNTH 16
-#define SIGN_FREQ 60
+#define SIGN_FREQ 3
 #define  KEY_FREQ 30
 //Size of the signature in bytes
 #define SIGLENGTH 40

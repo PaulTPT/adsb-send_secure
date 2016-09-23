@@ -49,55 +49,101 @@ void Crypto::gen_signature(const unsigned char addr[3], const unsigned char sync
     unsigned char gen_sig[1+35+3+SIGLENGTH];
     unsigned char input[35];
     memcpy(input,addr,3*sizeof(char));
-    memcpy(input,key,32*sizeof(char));
+    memcpy(input+3,key,32*sizeof(char));
 
-    EC_KEY *eckey = NULL;
-    EC_POINT *pub_key = NULL;
-    const EC_GROUP *group = NULL;
-    BIGNUM start;
-    BIGNUM *res;
-    BN_CTX *ctx;
+    FILE *fp;
 
-    BN_init(&start);
-    ctx = BN_CTX_new(); // ctx is an optional buffer to save time from allocating and dealocating memory whenever required
-    res = &start;
-    BN_hex2bn(&res,"267B419FDC0E6929FF1127D27AB4E09C"); //Private key of the CA
-    eckey = EC_KEY_new_by_curve_name(NID_secp128r1);
-    group = EC_KEY_get0_group(eckey);
-    pub_key = EC_POINT_new(group);
-    EC_KEY_set_private_key(eckey, res);
+    fp = fopen ("/home/paultpt/Documents/eckeys/ec_pkey.pem", "rb");
+        if (fp==NULL){
+        printf("Reading key FAIL\n");
+     }
+     else
+        printf("Readig key SUCCESS\n");
 
+     EVP_PKEY *privkey;
+     privkey = PEM_read_PrivateKey( fp, NULL,0, NULL);
+     if (privkey==NULL){
+        printf("Loading key FAIL\n");
+     }
+     else
+        printf("Loading key SUCCESS\n");
+    fclose(fp);
 
-    /* pub_key is a new uninitialized `EC_POINT*`.  priv_key res is a `BIGNUM*`. */
-    if (!EC_POINT_mul(group, pub_key, res, NULL, NULL, ctx))
-        printf("Error at EC_POINT_mul.\n");
-    EC_KEY_set_public_key(eckey, pub_key);
+    EC_KEY *eckey;
+    eckey = EC_KEY_new();
+    eckey = EVP_PKEY_get1_EC_KEY(privkey);
 
-    ECDSA_SIG *signature = ECDSA_do_sign(input, 36, eckey);
-    if (NULL == signature)
-        printf("Failed to generate EC Signature\n");
+    if (!EC_KEY_check_key(eckey))
+    {
+        printf("Error with ECKey.\n");
+    }
 
-    EC_KEY_free(eckey);
-    BN_CTX_free(ctx);
-
-
-    int sigSize = i2d_ECDSA_SIG(signature, NULL);
-    unsigned  char* derSig = (unsigned char*)malloc(sigSize);
-    unsigned char* p = derSig;    //memset(sig_bytes, 6, sig_size);
-    sigSize= i2d_ECDSA_SIG(signature, &p);
-
-    if (sigSize/8>SIGLENGTH)
-        printf("Error: signature is too long. Choose an other curve");
 
     unsigned char header=0b01110000 | (sync & 0b00000111); //Type 14
 
-    unsigned char crc[3];
+
 
     memcpy(gen_sig,&header,1*sizeof(char));
     memcpy(gen_sig+1,input,35*sizeof(char));
-    memcpy(gen_sig+36,derSig,SIGLENGTH*sizeof(char));
+
+    //Signature
+
+    unsigned char hash[20];
+    SHA1(gen_sig, 36, hash);
+
+    std::cout << "Sha : ";
+    for (int m=0; m<20; m++){
+        std::cout <<  std::hex << std::setw(2) << std::setfill('0') << unsigned(hash[m]);
+    }
+    std::cout <<std::endl;
+
+    ECDSA_SIG * ecdsa_sig;
+    ecdsa_sig = ECDSA_SIG_new();
+    unsigned int siglen = ECDSA_size(eckey);
+
+
+    ecdsa_sig = ECDSA_do_sign(hash, 20, eckey);
+    if (NULL == ecdsa_sig)
+        printf("Failed to generate EC Signature\n");
+
+
+
+    //We use the NID_secp128r1 signature, then r and s are 128 bits long (16 bytes)
+    BIGNUM* r = ecdsa_sig->r;
+    int r_size=BN_num_bytes(r);
+    unsigned char r_bytes[r_size];
+    BN_bn2bin(r,r_bytes);
+
+    std::cout << "r : ";
+    for (int m=0; m<r_size; m++){
+        std::cout <<  std::hex << std::setw(2) << std::setfill('0') << unsigned(r_bytes[m]);
+    }
+    std::cout <<std::endl;
+
+    BIGNUM* s =ecdsa_sig->s;
+    int s_size=BN_num_bytes(s);
+    unsigned char s_bytes[s_size];
+    BN_bn2bin(s,s_bytes);
+
+    std::cout << "s : ";
+    for (int m=0; m<s_size; m++){
+        std::cout <<  std::hex << std::setw(2) << std::setfill('0') << unsigned(s_bytes[m]);
+    }
+    std::cout <<std::endl;
+
+    if (r_size+s_size>SIGLENGTH){
+        printf("Signature too long ...\n");
+    }
+
+    EC_KEY_free(eckey);
+
+    memcpy(gen_sig+36,r_bytes,r_size*sizeof(char));
+    memcpy(gen_sig+36+r_size,s_bytes,s_size*sizeof(char));
+    //CRC
+    unsigned char crc[3];
     modesChecksum(gen_sig,36+SIGLENGTH,crc);
     memcpy(gen_sig+36+SIGLENGTH,crc,3*sizeof(char));
+
     memcpy(sig,gen_sig,(39+SIGLENGTH)*sizeof(char));
 
 

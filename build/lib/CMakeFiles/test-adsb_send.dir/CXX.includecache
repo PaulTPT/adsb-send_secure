@@ -11,6 +11,10 @@ crypto.h
 /home/paultpt/Documents/gnuradio/gr-adsb_send/lib/crypto.h
 
 /home/paultpt/Documents/gnuradio/gr-adsb_send/lib/crypto.h
+stdio.h
+-
+string.h
+-
 openssl/ec.h
 -
 openssl/ecdsa.h
@@ -18,6 +22,12 @@ openssl/ecdsa.h
 openssl/obj_mac.h
 -
 openssl/hmac.h
+-
+openssl/objects.h
+-
+openssl/pem.h
+-
+openssl/evp.h
 -
 stdio.h
 -
